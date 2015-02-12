@@ -38,8 +38,8 @@
 |
 */
 
-$route['default_controller'] = 'pages/view';
-$route['(:any)'] = 'pages/view/$1';
+$route['default_controller'] = 'login/view';
+$route['(:any)'] = 'login/view/$1';
 
 
 /* End of file routes.php */
