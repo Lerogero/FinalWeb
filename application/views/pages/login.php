@@ -16,7 +16,7 @@
                         <form role="form" action="javascript:;" method="post" id="login-form" autocomplete="off">
                             <div class="form-group">
                                 <label for="username" class="sr-only">Username</label>
-                                <input type="username" name="email" id="email" class="form-control" placeholder="Username">
+                                <input  type="username" name="email" id="email" class="form-control" placeholder="Username" autofocus>
                             </div>
                             <div class="form-group">
                                 <label for="key" class="sr-only">Password</label>
