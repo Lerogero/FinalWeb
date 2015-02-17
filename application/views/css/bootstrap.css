@@ -1,4 +1,5 @@
 @import url("//fonts.googleapis.com/css?family=Lato:400,700,400italic");
+@import url(http://fonts.googleapis.com/css?family=Ubuntu:500);
 /*!
  * bootswatch v3.3.2
  * Homepage: http://bootswatch.com
@@ -167,6 +168,15 @@ input[type="search"]::-webkit-search-cancel-button,
 input[type="search"]::-webkit-search-decoration {
   -webkit-appearance: none;
 }
+<<<<<<< HEAD
+=======
+input {
+  text-align: center;
+}
+input:focus {
+  box-shadow: 0px 0px 0px 2px #35AF88;
+}
+>>>>>>> origin/master
 fieldset {
   border: 1px solid #c0c0c0;
   margin: 0 2px;
@@ -6824,18 +6834,27 @@ a.list-group-item-danger.active {
 a.list-group-item-danger.active:hover,
 a.list-group-item-danger.active:focus {
   background-color: #e43725;
+<<<<<<< HEAD
 }
 .popover {
   color: #ffffff;
 }
 .panel-default > .panel-heading {
   background-color: #464545;
+=======
+>>>>>>> origin/master
 }
 /*    --------------------------------------------------
   :: Login Section
   -------------------------------------------------- */
 #login {
+<<<<<<< HEAD
     padding-top: 300px
+=======
+    font-family: 'Ubuntu', sans-serif;
+    padding-top: 300px;
+    outline: none;
+>>>>>>> origin/master
 }
 #login .form-wrap {
     width: 30%;
@@ -6906,5 +6925,24 @@ a.list-group-item-danger.active:focus {
 .btn-custom:hover,
 .btn-custom:focus {
     color: #fff;
+<<<<<<< HEAD
     background-color: #20B082;
+=======
+    background-color:#35AF88;
+}
+
+/*    --------------------------------------------------
+    :: Footer
+  -------------------------------------------------- */
+#footer {
+    color: #6d6d6d;
+    font-size: 12px;
+    text-align: center;
+}
+#footer p {
+    margin-bottom: 0;
+}
+#footer a {
+    color: inherit;
+>>>>>>> origin/master
 }
