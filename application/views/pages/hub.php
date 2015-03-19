@@ -15,6 +15,7 @@
         <li>Lecture ID</li>
         <li>Lecture Name</li>
         <li>Duration</li>
+        <li>Total Lectures</li>
       </ul>
       <section id="login">
       <form role="form" method="post" id="create-lecture" autocomplete="off">

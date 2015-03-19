@@ -39,10 +39,6 @@
 */
 
 $route['default_controller'] = 'login/view';
-$route['(:any)'] = 'login/view/$1';
-$route['login']='login/view$1';
-$route['hub']="hub/view/$1";
-$route['password']="lecpas/view/$1";
 
 
 /* End of file routes.php */
