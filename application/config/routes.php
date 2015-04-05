@@ -40,6 +40,5 @@
 
 $route['default_controller'] = 'login/view';
 
-
 /* End of file routes.php */
 /* Location: ./application/config/routes.php */

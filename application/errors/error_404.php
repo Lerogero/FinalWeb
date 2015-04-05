@@ -56,7 +56,7 @@ p {
 <body>
 	<div id="container">
 		<h1><?php echo $heading; ?></h1>
-		<?php echo $message; ?>
+		<p><?php echo $message . "If you're on this page, please email: <strong>g.w.neal@wlv.ac.uk</strong> and tell me how you got here!"; ?></p>
 	</div>
 </body>
 </html>

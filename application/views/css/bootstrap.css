@@ -6898,20 +6898,3 @@ a.list-group-item-danger.active:focus {
   text-align: center;
   display: block;
 }
-
-/*    --------------------------------------------------
-  :: Inputs & Buttons
-  -------------------------------------------------- */
-.form-control {
-    color: #212121;
-}
-.btn-custom {
-    color: #fff;
-  background-color: #1fa67b;
-}
-.btn-custom:hover,
-.btn-custom:focus {
-    color: #fff;
-    background-color: #20B082;
-
-}

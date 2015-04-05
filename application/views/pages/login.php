@@ -1,34 +1,48 @@
-<!DOCTYPE html>
-<html>
-  <head>
-    <meta charset="utf-8">
-   <meta http-equiv="X-UA-Compatible" content="IE=edge">
-   <meta name="viewport" content="width=device-width, initial-scale=1">
-    <title><?php echo $title; ?> Page</title>
-    <link href="<?php echo base_url('application/views/css/bootstrap.css');?>" rel="stylesheet">
-  </head>
-  <body>
+
     <section id="login">
         <div class="container">
           <div class="row">
               <div class="col-xs-12">
                   <div class="form-wrap">
-                        <form role="form"  method="post" id="	login-form" autocomplete="off">
-                            <div class="form-group">
-                                <label for="username" class="sr-only">Username</label>
-                                <input type="username" name="email" id="email" class="form-control" placeholder="Username" autofocus>
-								                </div>
-                                <div class="form-group">
-                                <label for="key" class="sr-only">Password</label>
-                                <input type="password" name="key" id="key" class="form-control" placeholder="Password">
-                            </div>
-                            <input type="submit" id="btn-login" class="btn btn-custom btn-lg btn-block" value="Log in">
-                        </form>
+                            <div class="form-group login-form">
+                              <?php
+
+                              //Username Form
+                              echo form_open('index.php/login/view/');
+                                $data = array(
+                                  'type' => 'username',
+                                  'name' => 'username',
+                                  'id' => 'username',
+                                  'class' => 'form-control',
+                                  'placeholder' => 'Username',
+                                  'value' => set_value('username'),
+                                  'autofocus' => 'autofocus');
+                                echo form_input($data) . "<br>";
+
+                                // Password Form
+                                  $data = array(
+                                    'type' => 'password',
+                                    'name' => 'password',
+                                    'id' => 'password',
+                                    'class' => 'form-control',
+                                    'placeholder' => 'Password');
+                                  echo form_password($data)  . "<br>";
+
+                                  // Submit Form
+                                  $data = array (
+                                    'type' => 'submit',
+                                    'name' => 'login',
+                                    'id' => 'btn-login',
+                                    'class' => 'btn btn-custom btn-lg btn-block',
+                                    'value' => 'Log in'
+                                  );
+                                  echo form_submit($data);
+                                  echo form_close();
+                                  echo validation_errors('<p class="error">');
+                                ?>
+                                <p class="error"> <?php if (!empty ($error)) { echo $error; }?></p>
                   </div>
             </div>
           </div>
         </div>
     </section>
-    <script src="<?php echo site_url('application/views/js/bootstrap.min.js')?>"></script>
-  </body>
-</html>
