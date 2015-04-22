@@ -12,7 +12,7 @@ class Lecpas extends CI_Controller {
     } else {
      echo "Welcome, enter the lecture password to continue!";
      $data['title'] = ucfirst($page); // Capitalize the first letter
-     $this->load->view('templates' . '/header.php');
+     $this->load->view('templates' . '/header.php', $data);
      $this->load->view('pages/'.$page, $data);
      $this->load->view('templates' . '/footer.php');
    }
