@@ -3,8 +3,10 @@ Final year Web Project.
 
 TODO:
 
-Setup PC
+Create Class System
 
-Setup Server
+Intergate Ajax Buttons
 
-Setup Laptop
+Intergate Power point slides
+
+Do testing
