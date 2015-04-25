@@ -12,7 +12,23 @@ class Lecpas extends CI_Controller {
     } else {
      echo "Welcome, enter the lecture password to continue!";
      $data['title'] = ucfirst($page); // Capitalize the first letter
-     $this->load->view('templates' . '/header.php');
+     $this->load->view('templates' . '/header.php', $data);
+     $this->load->view('pages/'.$page, $data);
+     $this->load->view('templates' . '/footer.php');
+   }
+  }
+
+  public function access($page = 'access') {
+    if ( ! file_exists(APPPATH.'/views/pages/'.$page.'.php'))
+    {
+      // Whoops, we don't have a page for that!
+      show_404();
+    }
+    if (!$this->session->userdata('username')){
+      redirect (base_URL(). 'index.php/login/view');
+    } else {
+     $data['title'] = ucfirst($page); // Capitalize the first letter
+     $this->load->view('templates' . '/header.php', $data);
      $this->load->view('pages/'.$page, $data);
      $this->load->view('templates' . '/footer.php');
    }
