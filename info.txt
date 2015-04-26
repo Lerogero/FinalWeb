@@ -1,0 +1,34 @@
+
+
+
+Database:
+
+User Database:
+UserID   Username  Password
+
+
+Class Database:
+classPassword(Fetch)[PK]   addedTime(Fetch)
+
+Input Database:
+classPassword(Fetch)  Username(Fetch(FROM Session))[PK] Input[1]  input[2]  input[3]
+
+
+
+
+Button is pressed, Check endTime if(Date > endDate(Session)) {  Remove password session }
+else input from button to input
+
+
+Logging nests password to PHP Session.
+
+Post from PHP (lecturepassword) Session to InputDB
+
+When entereing the class password check password = correct, then check if date > date + time if true Class has ended.
+
+Check for classPassword
+
+
+
+Ajax Database pull totals input[1 -  3] Where class passsord(input) = class password(class)
+      GROUP BY  classPassword

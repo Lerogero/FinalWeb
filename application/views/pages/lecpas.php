@@ -29,6 +29,7 @@
                             echo form_close();
                             echo validation_errors('<p class="error">');
                           ?>
+                          <p class="error"> <?php if (!empty ($error)) { echo $error; }?></p>
                         <form action="<?php echo base_url('index.php/logout/view');?>">
                           <input type="submit"  id="btn-login" class="btn btn-custom btn-lg btn-block" value="Log out">
                         </form>

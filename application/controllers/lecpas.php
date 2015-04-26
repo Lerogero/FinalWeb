@@ -1,6 +1,10 @@
 <?php
 class Lecpas extends CI_Controller {
 
+
+  //---------------------------------------
+  // MAIN LECPAS VIEW FUNCTION
+  //---------------------------------------
   public function view($page = 'lecpas') {
     if ( ! file_exists(APPPATH.'/views/pages/'.$page.'.php'))
     {
@@ -10,27 +14,82 @@ class Lecpas extends CI_Controller {
     if (!$this->session->userdata('username')){
       redirect (base_URL(). 'index.php/login/view');
     } else {
-     echo "Welcome, enter the lecture password to continue!";
-     $data['title'] = ucfirst($page); // Capitalize the first letter
-     $this->load->view('templates' . '/header.php', $data);
-     $this->load->view('pages/'.$page, $data);
-     $this->load->view('templates' . '/footer.php');
-   }
-  }
 
+      $this->form_validation->set_rules('password','Password','trim|required|xss_clean');
+
+      if ($this->form_validation->run() === false) {
+
+        $data['title'] = ucfirst($page); // Capitalize the first letter
+        $this->load->view('templates' . '/header.php', $data);
+        $this->load->view('pages/'.$page, $data);
+        $this->load->view('templates' . '/footer.php');
+
+      } else {
+
+        $classPassword = $this->input->post('password');
+        $this->load->model('create_model');
+        $result = $this->create_model->lecture_login($classPassword);
+
+        if ($result === true) {
+
+          if (date('H:i:s') > $this->session->userdata('endTime')) {
+
+            $data['error'] = "Class has ended!";
+            $data['title'] = ucfirst($page);
+            $this->load->view('templates' . '/header.php', $data);
+            $this->load->view('pages/'.$page, $data);
+            $this->load->view('templates' . '/footer.php');
+
+          } else {
+            redirect (base_url() . 'index.php/lecpas/access');
+          }
+        } else {
+
+        $data['error'] = "Bad Password!";
+        $data['title'] = ucfirst($page);
+        $this->load->view('templates' . '/header.php', $data);
+        $this->load->view('pages/'.$page, $data);
+        $this->load->view('templates' . '/footer.php');
+
+      }
+    }
+  }
+}
+
+
+
+  //---------------------------------------
+  // ACCESS FUNCTION
+  //---------------------------------------
   public function access($page = 'access') {
     if ( ! file_exists(APPPATH.'/views/pages/'.$page.'.php'))
     {
       // Whoops, we don't have a page for that!
       show_404();
     }
+
+    $this->load->model('lecpas_model');
+
     if (!$this->session->userdata('username')){
       redirect (base_URL(). 'index.php/login/view');
     } else {
-     $data['title'] = ucfirst($page); // Capitalize the first letter
-     $this->load->view('templates' . '/header.php', $data);
-     $this->load->view('pages/'.$page, $data);
-     $this->load->view('templates' . '/footer.php');
-   }
+      if (!$this->session->userdata('classPassword')) {
+
+        redirect (base_URL(). 'index.php/lecpas/view');
+      } else {
+        if (date('H:i:s') > $this->session->userdata('endTime')) {
+          redirect (base_URL(). 'index.php/lecpas/view');
+        } else {
+       $data['title'] = ucfirst($page); // Capitalize the first letter
+       $this->load->view('templates' . '/header.php', $data);
+       $this->load->view('pages/'.$page, $data);
+       $this->load->view('templates' . '/footer.php');
+     }
+    }
   }
+  }
+
+  //---------------------------------------
+  // END OF FILE
+  //---------------------------------------
 }
