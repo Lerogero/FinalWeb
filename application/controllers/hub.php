@@ -24,8 +24,12 @@ class Hub extends CI_Controller {
 
      $data['user'] = $this->session->userdata('username');
      $data['title'] = ucfirst($page);
-     $query = $this->db->query('SELECT * FROM input');
-     $data['users'] = $query->result_array();
+
+
+     $this->load->model('lecpas_model');
+     $data['query'] = $this->lecpas_model->lecsearch();
+
+
      $this->load->view('templates' . '/header.php', $data);
      $this->load->view('pages/'.$page, $data);
      $this->load->view('templates' . '/footer.php');

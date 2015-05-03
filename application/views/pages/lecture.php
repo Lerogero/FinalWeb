@@ -12,7 +12,7 @@
 <div class="container">
   <center>
     <form id="uploadForm" runat="server">
-        <input type='file' id="imgUp" multiple onchange="readURL(this)"/>
+      <h2>Upload: </h2><input type='file' id="imgUp" multiple onchange="readURL(this)"/>
     </form>
   </center>
 </div>
