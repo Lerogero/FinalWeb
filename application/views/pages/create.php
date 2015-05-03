@@ -12,7 +12,7 @@
 
         echo form_dropdown('time', $data, '1 hour');
 
-        echo '<p style="color: red;">As soon as you click the Start Lecture button the time period will start.</p>';
+        echo "<br>". "<br>". '<p class="bg-danger">As soon as you click the Start Lecture button the time period will start.</p>';
         $data = array (
           'type' => 'submit',
           'id' => 'create-lecture',
@@ -20,11 +20,11 @@
           'value' => 'start Lecture'
         );
         echo form_submit($data) . "<br>";
-        echo form_close() . "<br>". "<br>". "<br>". "<br>";?>
+        echo form_close() ;?> <br> <br> <br> <br> <br>
 
         <form action="<?php echo base_url('index.php/hub/view');?>">
-          <input type="submit"  id="btn-login" class="btn btn-custom btn-lg btn-block" value="Back">
-      </form>
+            <input type="submit"  id="btn-login" class="btn btn-custom btn-lg btn-block" value="Back">
+        </form>
     </center>
   </section>
 </div>

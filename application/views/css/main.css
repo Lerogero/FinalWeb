@@ -27,3 +27,78 @@
 .error {
  color: red;
 }
+
+/*    --------------------------------------------------
+  :: Class Password Read Out
+  -------------------------------------------------- */
+.classPassword {
+  font-size: 26px;
+  background-color:#4C4C4C;
+  height: 40px;
+  width: 300px;
+  text-align: center;
+  border-bottom-left-radius: 4px;
+}
+
+/*    --------------------------------------------------
+  :: Ajax User Read Outs
+  -------------------------------------------------- */
+.ajaxbutton {
+  display: inline-block;
+  margin-bottom: 0;
+  font-weight: normal;
+  text-align: center;
+  vertical-align: middle;
+  -ms-touch-action: manipulation;
+      touch-action: manipulation;
+  background-image: none;
+  border: 1px solid transparent;
+  white-space: nowrap;
+  padding: 18px 27px;
+  font-size: 19px;
+  line-height: 1.3333333;
+  border-top-left-radius: 4px;
+  border-bottom-left-radius: 4px;
+  -webkit-user-select: none;
+  -moz-user-select: none;
+  -ms-user-select: none;
+  user-select: none;
+  margin-bottom: 5px;
+}
+/*    --------------------------------------------------
+  :: Their Colours
+  -------------------------------------------------- */
+.btncolor1 {
+  background-color: #008966;
+}
+
+.btncolor2 {
+  background-color: #28415B;
+}
+
+.btncolor3 {
+  background-color: #D62C1A;
+}
+
+/*    --------------------------------------------------
+  :: Slides
+  -------------------------------------------------- */
+
+#slides {
+  position: fixed;
+  top: -50%;
+  left: -50%;
+  width: 200%;
+  height: 200%;
+  z-index: -1;
+}
+#slides img {
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  margin: auto;
+  min-width: 50%;
+  min-height: 50%;
+}

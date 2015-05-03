@@ -1,9 +1,5 @@
-
+<div class="container">
     <section id="login">
-        <div class="container">
-          <div class="row">
-              <div class="col-xs-12">
-                  <div class="form-wrap">
                             <div class="form-group login-form">
                               <?php
 
@@ -41,8 +37,5 @@
                                   echo validation_errors('<p class="error">');
                                 ?>
                                 <p class="error"> <?php if (!empty ($error)) { echo $error; }?></p>
-                  </div>
-            </div>
-          </div>
-        </div>
     </section>
+  </div>

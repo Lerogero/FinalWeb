@@ -22,8 +22,10 @@ class Hub extends CI_Controller {
 
     } else {
 
-     echo "Welcome, " . $this->session->userdata('username') . " Create your lecture!";
+     $data['user'] = $this->session->userdata('username');
      $data['title'] = ucfirst($page);
+     $query = $this->db->query('SELECT * FROM input');
+     $data['users'] = $query->result_array();
      $this->load->view('templates' . '/header.php', $data);
      $this->load->view('pages/'.$page, $data);
      $this->load->view('templates' . '/footer.php');
@@ -53,23 +55,6 @@ class Hub extends CI_Controller {
 
     } else {
 
-       function randomString($length = 5) {
-        $characters = '0123456789abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ';
-        $charactersLength = strlen($characters);
-        $randomString = '';
-          for ($i = 0; $i < $length; $i++) {
-             $randomString .= $characters[rand(0, $charactersLength - 1)];
-           }
-        return $randomString;
-       }
-
-       $classPassword = randomString();
-
-      $this->session->set_userdata('classPassword', $classPassword);
-
-
-
-
       $data['title'] = ucfirst($page);
       $this->load->view('templates'.'/header.php', $data);
       $this->load->view('pages/'.$page, $data);
@@ -84,6 +69,20 @@ class Hub extends CI_Controller {
   // CREATE LECTURE FUNCTION
   //---------------------------------------
   public function start(){
+
+    function randomString($length = 5) {
+     $characters = '0123456789abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ';
+     $charactersLength = strlen($characters);
+     $randomString = '';
+       for ($i = 0; $i < $length; $i++) {
+          $randomString .= $characters[rand(0, $charactersLength - 1)];
+        }
+     return $randomString;
+    }
+
+    $classPassword = randomString();
+
+   $this->session->set_userdata('classPassword', $classPassword);
 
     $this->load->model('create_model');
     $classPassword = $this->session->userdata('classPassword');

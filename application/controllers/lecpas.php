@@ -68,7 +68,6 @@ class Lecpas extends CI_Controller {
       show_404();
     }
 
-    $this->load->model('lecpas_model');
 
     if (!$this->session->userdata('username')){
       redirect (base_URL(). 'index.php/login/view');
@@ -88,6 +87,24 @@ class Lecpas extends CI_Controller {
     }
   }
   }
+
+
+ public function buttons() {
+   if (!$this->session->userdata('username')){
+     redirect (base_URL(). 'index.php/login/view');
+   } else {
+     if (!$this->session->userdata('classPassword')) {
+
+       redirect (base_URL(). 'index.php/lecpas/view');
+     } else {
+       if (date('H:i:s') > $this->session->userdata('endTime')) {
+         redirect (base_URL(). 'index.php/lecpas/view');
+       } else {
+         $this->model->load('lecpas_model');
+    }
+   }
+ }
+ }
 
   //---------------------------------------
   // END OF FILE

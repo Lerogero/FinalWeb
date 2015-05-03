@@ -9,4 +9,11 @@
 
     }
 
+    public function lecsearch($data){
+
+      $query = $this->db->get('input');
+      return $query->result();
+
+    }
+
   }
