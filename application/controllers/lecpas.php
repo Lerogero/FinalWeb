@@ -80,6 +80,9 @@ class Lecpas extends CI_Controller {
           redirect (base_URL(). 'index.php/lecpas/view');
         } else {
        $data['title'] = ucfirst($page); // Capitalize the first letter
+
+       $this->load->model('lecpas_model');
+
        $this->load->view('templates' . '/header.php', $data);
        $this->load->view('pages/'.$page, $data);
        $this->load->view('templates' . '/footer.php');
@@ -100,7 +103,8 @@ class Lecpas extends CI_Controller {
        if (date('H:i:s') > $this->session->userdata('endTime')) {
          redirect (base_URL(). 'index.php/lecpas/view');
        } else {
-         $this->model->load('lecpas_model');
+
+         $this->model->load('buttons_model');
     }
    }
  }

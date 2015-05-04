@@ -26,9 +26,7 @@ function readURL(input) {
 }
 
 
-// document.getElementById("imgUp").change(function () {
-//     readURL(this);
-// });
+
 
 
 

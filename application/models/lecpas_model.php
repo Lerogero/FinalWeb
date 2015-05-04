@@ -8,43 +8,31 @@
               parent::__construct();
       }
 
-    public function check_lecture($data){
-
-      //NOTHING HERE..... YET!
-
-    }
 
     public function lecsearch(){
 
-      return $this->db->query('SELECT Username AS Username, sum(inputOne) AS inputOne, sum(inputTwo) AS inputTwo, sum(inputThree) AS inputThree
+      return $this->db->query('SELECT Username AS Username,
+        sum(inputOne) AS inputOne, sum(inputTwo) AS inputTwo, sum(inputThree) AS inputThree
         FROM input GROUP BY Username;')->result_array();
 
     }
 
-  }
+    public function insertinput() {
 
+      $classPassword = $this->session->userdata('classPassword');
+      $Username = $this->session->userdata('username');
 
-  public function insertinput() {
+      $sql = "INSERT INTO input (classPassword, Username)
+        VALUES ('" . $classPassword . "',
+          '" . $Username . "')";
 
-    $updatecheck = 0;
+      $this->db->query($sql);
 
-    if($updatecheck === 0 ){
-
-      $data = array(
-        'classPassword' => 'classPassword' ,
-        'Username' => 'Username' ,
-        'inputOne' => 'inputOne',
-        'inputTwo' => 'inputOne',
-        'inputThree' => 'inputOne',
-      );
-
-      $this->db->insert('mytable', $data);
-
-      $updatecheck++;
-    } else {
-
-
+      return  true;
 
     }
 
+      //---------------------------------------
+      // END OF FILE
+      //---------------------------------------
   }
