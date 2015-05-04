@@ -3,9 +3,9 @@
   <div class="pull-right">
     <div class="classPassword">Password: <?php echo $classPassword; ?></div><br>
   <div class="pull-right">
-    <div class="ajaxbutton btncolor1">0 </div><br>
-    <div class="ajaxbutton btncolor2">0 </div><br>
-    <div class="ajaxbutton btncolor3">0 </div>
+    <div id="inputOne" class="ajaxbutton btncolor1">0 </div><br>
+    <div id="inputTwo"class="ajaxbutton btncolor2">0 </div><br>
+    <div id="inputThree"class="ajaxbutton btncolor3">0 </div>
   </div>
 </div>
 

@@ -31,8 +31,9 @@ class Lecpas extends CI_Controller {
         $result = $this->create_model->lecture_login($classPassword);
 
         if ($result === true) {
-
-          if (date('H:i:s') > $this->session->userdata('endTime')) {
+          $Time = new DateTime();
+          $Time = $Time->format('Y-m-d H:i:s');
+          if ($Time > $this->session->userdata('endTime')) {
 
             $data['error'] = "Class has ended!";
             $data['title'] = ucfirst($page);
@@ -76,12 +77,15 @@ class Lecpas extends CI_Controller {
 
         redirect (base_URL(). 'index.php/lecpas/view');
       } else {
-        if (date('H:i:s') > $this->session->userdata('endTime')) {
+        $Time = new DateTime();
+        $Time = $Time->format('Y-m-d H:i:s');
+        if ($Time > $this->session->userdata('endTime')) {
           redirect (base_URL(). 'index.php/lecpas/view');
         } else {
        $data['title'] = ucfirst($page); // Capitalize the first letter
 
        $this->load->model('lecpas_model');
+       $this->lecpas_model->insertinput();
 
        $this->load->view('templates' . '/header.php', $data);
        $this->load->view('pages/'.$page, $data);
@@ -100,11 +104,16 @@ class Lecpas extends CI_Controller {
 
        redirect (base_URL(). 'index.php/lecpas/view');
      } else {
-       if (date('H:i:s') > $this->session->userdata('endTime')) {
+       $Time = new DateTime();
+       $Time = $Time->format('Y-m-d H:i:s');
+       if ($Time > $this->session->userdata('endTime')) {
          redirect (base_URL(). 'index.php/lecpas/view');
        } else {
 
+         $button = $_POST['button'];
+
          $this->model->load('buttons_model');
+         $this->buttons_model->alterinput($button);
     }
    }
  }

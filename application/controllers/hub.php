@@ -90,7 +90,8 @@ class Hub extends CI_Controller {
     $classPassword = $this->session->userdata('classPassword');
 
     $addtime = $this->input->post('time');
-    $time = date('H:i:s', strtotime(date("H:i:s") . $addtime));
+    $time = new DateTime($addtime);
+    $time = $time->format('Y-m-d H:i:s');
 
     $data = array (
       'classPassword' => $classPassword,
@@ -125,7 +126,6 @@ class Hub extends CI_Controller {
     } else {
 
       $data['classPassword'] = $this->session->userdata('classPassword');
-      $data['time'] = $this->session->userdata('time');
       $data['title'] = ucfirst($page);
       $this->load->view('templates'.'/header.php', $data);
       $this->load->view('pages/'.$page, $data);

@@ -1,46 +1,15 @@
-$(document).ready(function(){
 
-    $("#inputOne").click(function()
-    {
-     $.ajax({
-         type: "POST",
-         url: "<?php echo base_url(); ?>index.php/lecpas/buttons",
-         data: {"1"},
-         success:
-              function(){
-                sleep(5);  //STOP POST
-              }
-          });
-     return false;
- });
+function buttonPressed(e){
+    e.preventDefault();
 
-   $("#inputTwo").click(function()
-   {
+    butId = $(this).attr('id');
+
     $.ajax({
-        type: "POST",
-        url: "<?php echo base_url(); ?>index.php/lecpas/buttons",
-        data: {"1"},
-        success:
-             function(){
-               sleep(5);  //STOP POST
-             }
-         });
-    return false;
-  });
-
-  $("#inputThree").click(function()
-  {
-   $.ajax({
-       type: "POST",
-       url: "<?php echo base_url(); ?>index.php/lecpas/buttons",
-       data: {"1"},
-       success:
-            function(){
-              sleep(5);  //STOP POST
-            }
-        });
-   return false;
- });
-
-
- });
+          method: "POST",
+          url: "index.php/lecpas/buttons/",
+          data: { button: butId }
+        })
+      .done(function( msg ) {
+        sleep(5);
+      });
+});
