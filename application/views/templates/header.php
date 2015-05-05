@@ -7,5 +7,6 @@
     <title><?php echo $title; ?> Page</title>
     <link href="<?php echo base_url('application/views/css/bootstrap.css');?>" rel="stylesheet">
     <link href="<?php echo base_url('application/views/css/main.css');?>" rel="stylesheet">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.3/jquery.min.js"></script>
   </head>
   <body>

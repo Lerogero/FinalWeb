@@ -82,6 +82,7 @@ class Lecpas extends CI_Controller {
         if ($Time > $this->session->userdata('endTime')) {
           redirect (base_URL(). 'index.php/lecpas/view');
         } else {
+
        $data['title'] = ucfirst($page); // Capitalize the first letter
 
        $this->load->model('lecpas_model');
@@ -97,26 +98,38 @@ class Lecpas extends CI_Controller {
 
 
  public function buttons() {
+
    if (!$this->session->userdata('username')){
+
      redirect (base_URL(). 'index.php/login/view');
+
    } else {
+
      if (!$this->session->userdata('classPassword')) {
 
        redirect (base_URL(). 'index.php/lecpas/view');
+
      } else {
+
        $Time = new DateTime();
        $Time = $Time->format('Y-m-d H:i:s');
+
        if ($Time > $this->session->userdata('endTime')) {
+
          redirect (base_URL(). 'index.php/lecpas/view');
+
        } else {
 
          $button = $_POST['button'];
-
-         $this->model->load('buttons_model');
+         $this->load->model('buttons_model');
          $this->buttons_model->alterinput($button);
+
     }
+
    }
- }
+
+  }
+
  }
 
   //---------------------------------------

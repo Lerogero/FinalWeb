@@ -1,10 +1,29 @@
-<script src="<?php echo site_url('application/views/js/buttons.js')?>"></script>
+
+<script type="text/javascript">
+$( document ).ready(function() {
+$(".btn-lg").on('click', function(e){
+    e.preventDefault();
+
+    butId = $(this).attr('id');
+
+    $.ajax({
+          method: "POST",
+          url: "<?php echo site_url('index.php/lecpas/buttons'); ?>",
+
+          data: { button: butId }
+        })
+      .done(function( msg ) {
+        console.log(msg);
+      });
+});
+});
+</script>
     <div style ="padding-top: 300px;" class="form-group login-form">
       <center>
-        <form onsubmit="buttonPressed()">
-          <input  class="btn btn-lg btn-success" type="submit" id="inputOne" value="I didn't understand that" ><br><br>
-          <input  class="btn btn-lg btn-primary" type="submit" id="inputTwo" value="Could you repeat that" ><br><br>
-          <input  class="btn btn-lg btn-danger" type="submit" id="inputThree" value="HELP!">
+        <form method="post">
+          <input  class="btn btn-lg btn-success" type="button" id="inputOne" value="I didn't understand that" ><br><br>
+          <input  class="btn btn-lg btn-primary" type="button" id="inputTwo" value="Could you repeat that" ><br><br>
+          <input  class="btn btn-lg btn-danger" type="button" id="inputThree" value="HELP!">
         </form>
       </center>
     </div>
