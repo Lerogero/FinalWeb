@@ -1,21 +1,18 @@
 <script src="<?php echo site_url('application/views/js/images.js')?>"></script>
 <script type="text/javascript">
+
 $(document ).ready(function() {
   var base_url = '<?php echo base_url();?>';
   var query = '<?php $query; ?>';
-  alert(query)
      $.ajax({
-       type: "GET",
-       url: base_url+"index.php/hub/lecture",
-       data: query,
+       type: "POST",
+       url: base_url+"index.php/hub/inputs",
+       data: data,
+       dataType: 'json',
        success: function(query){
-         if(query = "inputOne") {
-           document.getElementById("InputOne").innerHTML = query;
-         } else if (query = "inputTwo") {
-            document.getElementById("inputTwo").innerHTML = query;
-          } else if (query = "inputThree") {
-            document.getElementById("inputThree").innerHTML = query;
-          }
+          document.getElementById("InputOne").innerHTML = query['inputOne']
+          document.getElementById("inputTwo").innerHTML = query['inputTwo']
+          document.getElementById("inputThree").innerHTML = query['inputThree']
        }
      });
 

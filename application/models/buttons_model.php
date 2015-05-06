@@ -31,7 +31,7 @@
 
       public function getinput() {
 
-        $classPassword = $this->session->userdata('classpassword');
+          $classPassword = $this->session->userdata('classPassword');
 
           $this->db->select('sum(inputOne) AS inputOne, sum(inputTwo) AS inputTwo, sum(inputThree) AS inputThree')->from('input')->where('classPassword', $classPassword);
           $query = $this->db->get();

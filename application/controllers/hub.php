@@ -128,8 +128,6 @@ class Hub extends CI_Controller {
       $data['classPassword'] = $this->session->userdata('classPassword');
       $data['title'] = ucfirst($page);
 
-      $this->load->model('buttons_model');
-      $data['query'] = $this->buttons_model->getinput();
 
       $this->load->view('templates'.'/header.php', $data);
       $this->load->view('pages/'.$page, $data);
@@ -137,6 +135,21 @@ class Hub extends CI_Controller {
 
    }
 
+  }
+
+  public function inputs() {
+
+    $this->load->model('buttons_model');
+    $query =  $this->buttons_model->getinput();
+    foreach($query as $row) {
+    $query = array(
+      'inputOne' => $row['inputOne'],
+      'inputTwo' => $row['inputTwo'],
+      'inputThree' => $row['inputThree'],
+    );
+  }
+    $data['query'] = var_dump(json_encode($query));
+    
   }
 
   //---------------------------------------
