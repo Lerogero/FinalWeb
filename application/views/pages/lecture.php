@@ -3,18 +3,22 @@
 
 $(document ).ready(function() {
   var base_url = '<?php echo base_url();?>';
-  var query = '<?php $query; ?>';
-     $.ajax({
-       type: "POST",
-       url: base_url+"index.php/hub/inputs",
-       data: data,
-       dataType: 'json',
-       success: function(query){
-          document.getElementById("InputOne").innerHTML = query['inputOne']
-          document.getElementById("inputTwo").innerHTML = query['inputTwo']
-          document.getElementById("inputThree").innerHTML = query['inputThree']
-       }
-     });
+  setInterval(function(){
+    $.ajax({
+      url: base_url+"index.php/hub/inputs",
+      type:'POST',
+      dataType: 'json',
+      success: function(data){
+         document.getElementById("inputOne").innerHTML = data['inputOne']
+         document.getElementById("inputTwo").innerHTML = data['inputTwo']
+         document.getElementById("inputThree").innerHTML = data['inputThree']
+      },
+      error: function(){
+        console.log("Error");
+      }
+    });
+}, 5000);
+
 
 });
 </script>

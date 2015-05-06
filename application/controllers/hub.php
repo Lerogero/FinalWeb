@@ -148,8 +148,9 @@ class Hub extends CI_Controller {
       'inputThree' => $row['inputThree'],
     );
   }
-    $data['query'] = var_dump(json_encode($query));
-    
+    //$data['query'] = var_dump(json_encode($query));
+    echo json_encode($query);
+
   }
 
   //---------------------------------------
