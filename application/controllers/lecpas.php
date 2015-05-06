@@ -120,7 +120,9 @@ class Lecpas extends CI_Controller {
 
        } else {
 
-         $button = $_POST['button'];
+         $button = $this->input->post('button');
+
+
          $this->load->model('buttons_model');
          $this->buttons_model->alterinput($button);
 

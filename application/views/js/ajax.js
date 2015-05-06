@@ -1,14 +1,16 @@
 $(document ).ready(function() {
+  var base_url = '<?php echo base_url();?>';
+  alert("Hello");
      $.ajax({
        type: "GET",
-       url: "index.php/hub/ajax/",
-       data: input,
-       success: function(input){
-         if(input = "inputOne") {
+       url: base_url+"index.php/hub/lecture",
+       data: query,
+       success: function(query){
+         if(query = "inputOne") {
            document.getElementById("InputOne").innerHTML = input;
-          } else if (input = "inputTwo") {
+         } else if (query = "inputTwo") {
             document.getElementById("inputTwo").innerHTML = input;
-          } else if (input = "inputThree") {
+          } else if (query = "inputThree") {
             document.getElementById("inputThree").innerHTML = input;
           }
        }

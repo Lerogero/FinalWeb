@@ -1,4 +1,26 @@
 <script src="<?php echo site_url('application/views/js/images.js')?>"></script>
+<script type="text/javascript">
+$(document ).ready(function() {
+  var base_url = '<?php echo base_url();?>';
+  var query = '<?php $query; ?>';
+  alert(query)
+     $.ajax({
+       type: "GET",
+       url: base_url+"index.php/hub/lecture",
+       data: query,
+       success: function(query){
+         if(query = "inputOne") {
+           document.getElementById("InputOne").innerHTML = query;
+         } else if (query = "inputTwo") {
+            document.getElementById("inputTwo").innerHTML = query;
+          } else if (query = "inputThree") {
+            document.getElementById("inputThree").innerHTML = query;
+          }
+       }
+     });
+
+});
+</script>
 <div class="classInfo">
   <div class="pull-right">
     <div class="classPassword">Password: <?php echo $classPassword; ?></div><br>

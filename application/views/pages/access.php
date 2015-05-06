@@ -5,15 +5,14 @@ $(".btn-lg").on('click', function(e){
     e.preventDefault();
 
     butId = $(this).attr('id');
-
+    var base_url = '<?php echo base_url();?>';
     $.ajax({
           method: "POST",
-          url: "<?php echo site_url('index.php/lecpas/buttons'); ?>",
-
+          url: base_url+"index.php/lecpas/buttons",
           data: { button: butId }
         })
-      .done(function( msg ) {
-        console.log(msg);
+      .done(function( data ) {
+        console.log(data);
       });
 });
 });
